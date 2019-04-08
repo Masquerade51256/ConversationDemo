@@ -2,14 +2,16 @@ from makeIDF import IDF
 from makeVec import Vec
 
 d = IDF()
-#d.makeIDF()
-m = Vec()
-#m.makeVecFile('extra/questionList.txt')
+d.make_idf()
+m = Vec(True)
+m.make_vec_file()
 
 s = input()
 while(s):
-    #print(m.simiVecText(s))
-    print(m.simiStrText(s))
+    # print(m.simi_vec_text(s))
+    # print(m.simi_str_text(s))
+    print(m.simi_answermap_vec(s))
+    # print(m.simi_answermap(s))
     s = input()
 
 '''
