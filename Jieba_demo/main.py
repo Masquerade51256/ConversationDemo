@@ -1,28 +1,25 @@
 from makeIDF import IDF
-from match import Match
+from makeVec import Vec
 
-"""
 d = IDF()
-d.makeIDF()
-m = Match(False)
+#d.makeIDF()
+m = Vec()
+#m.makeVecFile('extra/questionList.txt')
+
 s = input()
-while(s!="再见"):
-    m.match(s)
-    m.makeVec(s)
-    s=input()
-"""
+while(s):
+    #print(m.simiVecText(s))
+    print(m.simiStrText(s))
+    s = input()
 
-d = IDF()
-d.makeIDF()
-m = Match(False)
+'''
 s = input()
 s1 = input()
 while(s!= "再见" ):
-    #m.match(s)
-    vec = m.makeVec(s)
-    #m.match(s1)
-    vec1 = m.makeVec(s1)
-    m.similarity(vec, vec1)
+    #m.show(s)
+    #m.show(s1)
+    print(m.simiStrs(s, s1))
     s = input()
     s1 = input()
 
+'''
