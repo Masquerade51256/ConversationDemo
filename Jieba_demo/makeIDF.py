@@ -48,7 +48,7 @@ class IDF:
             p = '%.10f' % (math.log10(total / (all_dict[key] + 1)))
             if w > u'\u4e00' and w <= u'\u9fa5':
                 idf_dict[w] = p
-        print('IDF字典构造结束')
+        print('字典构造结束')
         fw = open('extra/myIDF.txt', 'w', encoding='utf-8')
         fw2 = open('extra/myWordsLib.txt', 'w', encoding='utf-8')
 
