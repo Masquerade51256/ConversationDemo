@@ -16,7 +16,7 @@ class IDF:
                       '25', '26', '27', '28', '29', '30',
                       '30', '31', '32', '33', '34']
 
-    def make_idf(self):
+    def make_idf_file(self, file_name='extra/myIDF.txt'):
         all_dict = {}
         total = 0
 
@@ -40,25 +40,23 @@ class IDF:
                 num = all_dict.get(key, 0)
                 all_dict[key] = num + 1
 
-            # print(temp_dict)
-            # print(all_dict)
-            # print(total)
-
         idf_dict={}
+
         for key in all_dict:
             # print(all_dict[key])
             w = key
             p = '%.10f' % (math.log10(total / (all_dict[key] + 1)))
             if w > u'\u4e00' and w <= u'\u9fa5':
                 idf_dict[w] = p
-        print('IDF字典构造结束')
-        fw_idf = open('extra/myIDF.txt', 'w', encoding='utf-8')
-        fw_word = open('extra/myWordsLib.txt', 'w', encoding='utf-8')
 
+
+        fw_idf = open(file_name, 'w', encoding='utf-8')
+        fw_word = open('extra/myWordsLib.txt', 'w', encoding='utf-8')
         for k in idf_dict:
             if k != '\n':
                 fw_idf.write(k + ' ' + idf_dict[k] + '\n')
                 fw_word.write(k + '\n')
+        print('IDF字典构造结束')
         fw_idf.close()
         fw_word.close()
 

@@ -2,26 +2,13 @@ from makeIDF import IDF
 from makeVec import Vec
 
 d = IDF()
-d.make_idf()
+d.make_idf_file() # 生成myidf文件和myWordLib文件
+
 m = Vec(True)
-m.make_vec_file()
+m.make_vec_file() # 补充answerMap文件
 
 s = input()
 while(s):
-    # print(m.simi_vec_text(s))
-    # print(m.simi_str_text(s))
-    print(m.simi_answermap_vec(s))
-    # print(m.simi_answermap(s))
+    print(m.simi_answermap_vec(s)) # 与answerMap中的向量匹配
+    # print(m.simi_answermap(s)) # 与answerMap中的字符串匹配
     s = input()
-
-'''
-s = input()
-s1 = input()
-while(s!= "再见" ):
-    #m.show(s)
-    #m.show(s1)
-    print(m.simiStrs(s, s1))
-    s = input()
-    s1 = input()
-
-'''

@@ -55,14 +55,6 @@ class Vec:
             result = s1_cut_code.dot(s2_cut_code) / (numpy.sqrt(s1_cut_code.dot(s1_cut_code)) * numpy.sqrt(s2_cut_code.dot(s2_cut_code)))
         return result
 
-    def make_vec_file(self, file_name="extra/answerMap.cfg"):
-        for i in self.index:
-            vec = self.make_vec(self.cfgParser[i]['question'])
-            self.cfgParser[i]['vector'] = str(vec)
-        with open(file_name, 'w+') as fw:
-            self.cfgParser.write(fw)
-        print('向量字典构造结束')
-
     def simi_answermap(self, s1):
         target = 'none'
         answer = 'none'
@@ -89,3 +81,11 @@ class Vec:
                 answer = self.cfgParser[i]['answer']
                 target = i
         return [bestValue, target, answer]
+
+    def make_vec_file(self, file_name="extra/answerMap.cfg"):
+        for i in self.index:
+            vec = self.make_vec(self.cfgParser[i]['question'])
+            self.cfgParser[i]['vector'] = str(vec)
+        with open(file_name, 'w+') as fw:
+            self.cfgParser.write(fw)
+        print('向量字典构造结束')
