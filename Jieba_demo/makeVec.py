@@ -10,9 +10,9 @@ class Vec:
     def __init__(self, ex_idf: bool = True, ex_stop_words: bool = True, ex_dict: bool = True, file_name="extra/answerMap.cfg"):
         if ex_stop_words:
             jieba.analyse.set_stop_words("extra/myStop.txt")
-        if(ex_idf):
+        if ex_idf:
             jieba.analyse.set_idf_path("extra/myIDF.txt")
-        if(ex_dict):
+        if ex_dict:
             jieba.load_userdict("extra/myDict.dict")
         self.cfgParser = ConfigParser()
         self.cfgParser.read(file_name, encoding="UTF8")
@@ -58,29 +58,29 @@ class Vec:
     def simi_answermap(self, s1):
         target = 'none'
         answer = 'none'
-        bestValue = 0
+        best_value = 0
         for i in self.index:
             s2 = self.cfgParser[i]['question']
             result = self.simi_strs(s1, s2)
-            if (result > bestValue):
-                bestValue = result
+            if result>best_value:
+                best_value = result
                 answer = self.cfgParser[i]['answer']
                 target = i
-        return [bestValue, target, answer]
+        return [best_value, target, answer]
 
     def simi_answermap_vec(self, s1):
         v1 = self.make_vec(s1)
         target = 'none'
         answer = 'none'
-        bestValue = 0
+        best_value = 0
         for i in self.index:
             v2 = json.loads(self.cfgParser[i]['vector'])
             result = self.simi_vecs(v1, v2)
-            if (result > bestValue):
-                bestValue = result
+            if result > best_value:
+                best_value = result
                 answer = self.cfgParser[i]['answer']
                 target = i
-        return [bestValue, target, answer]
+        return [best_value, target, answer]
 
     def make_vec_file(self, file_name="extra/answerMap.cfg"):
         for i in self.index:

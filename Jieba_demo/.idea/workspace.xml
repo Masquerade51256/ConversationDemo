@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6f70b425-ecbc-42e5-9ae8-f99d0f579423" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra/answerMap.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/extra/answerMap.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra/myIDF.txt" beforeDir="false" afterPath="$PROJECT_DIR$/extra/myIDF.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra/myWordsLib.txt" beforeDir="false" afterPath="$PROJECT_DIR$/extra/myWordsLib.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/makeIDF.py" beforeDir="false" afterPath="$PROJECT_DIR$/makeIDF.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/makeVec.py" beforeDir="false" afterPath="$PROJECT_DIR$/makeVec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/makeVec.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="31" column="34" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="34" />
+            <state relative-caret-position="254">
+              <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -47,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="195">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -59,7 +54,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extra/answerMap.cfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
+            <state relative-caret-position="1290">
               <caret line="86" column="33" selection-start-line="86" selection-start-column="33" selection-end-line="86" selection-end-column="33" />
             </state>
           </provider>
@@ -83,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/makeIDF.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="57" />
+            <state relative-caret-position="795">
+              <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -144,10 +139,10 @@
         <option value="$PROJECT_DIR$/extra/questionList.txt" />
         <option value="$PROJECT_DIR$/extra/myDict.dict" />
         <option value="$PROJECT_DIR$/utility.py" />
-        <option value="$PROJECT_DIR$/makeVec.py" />
-        <option value="$PROJECT_DIR$/makeIDF.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/extra/answerMap.cfg" />
+        <option value="$PROJECT_DIR$/makeIDF.py" />
+        <option value="$PROJECT_DIR$/makeVec.py" />
       </list>
     </option>
   </component>
@@ -273,17 +268,18 @@
       <workItem from="1554555439500" duration="33039000" />
       <workItem from="1554725510231" duration="5739000" />
       <workItem from="1554742899287" duration="2412000" />
+      <workItem from="1554773353180" duration="862000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51526000" />
+    <option name="totallyTimeSpent" value="52388000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21530758" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21816881" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -304,7 +300,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.3297568" />
       <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" x="0" y="0" width="310" height="700" id="Documentation" order="5" side_tool="true" visible="true" weight="0.36266094" />
+      <window_info anchor="right" x="0" y="0" width="310" height="700" id="Documentation" order="5" side_tool="true" visible="true" weight="0.19098713" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +322,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extra/answerMap.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="86" column="33" selection-start-line="86" selection-start-column="33" selection-end-line="86" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -357,37 +370,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/makeIDF.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extra/answerMap.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="86" column="33" selection-start-line="86" selection-start-column="33" selection-end-line="86" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/makeVec.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="34" />
+        <state relative-caret-position="795">
+          <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/makeIDF.py">
+    <entry file="file://$PROJECT_DIR$/makeVec.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="57" />
+        <state relative-caret-position="254">
+          <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>

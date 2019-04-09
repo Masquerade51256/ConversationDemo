@@ -34,7 +34,6 @@ class IDF:
             temp_dict = {}
             total += 1
             for word in outstr:
-                # print(word)
                 temp_dict[word] = 1
             for key in temp_dict:
                 num = all_dict.get(key, 0)
@@ -46,9 +45,8 @@ class IDF:
             # print(all_dict[key])
             w = key
             p = '%.10f' % (math.log10(total / (all_dict[key] + 1)))
-            if w > u'\u4e00' and w <= u'\u9fa5':
-                idf_dict[w] = p
-
+            # if w > u'\u4e00' and w <= u'\u9fa5':
+            idf_dict[w] = p
 
         fw_idf = open(file_name, 'w', encoding='utf-8')
         fw_word = open('extra/myWordsLib.txt', 'w', encoding='utf-8')
