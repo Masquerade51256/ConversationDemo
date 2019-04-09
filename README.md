@@ -54,9 +54,9 @@
        	file_name="extra/answerMap.cfg"):
            if ex_stop_words:
                jieba.analyse.set_stop_words("extra/myStop.txt")
-           if(ex_idf):
+           if ex_idf:
                jieba.analyse.set_idf_path("extra/myIDF.txt")
-           if(ex_dict):
+           if ex_dict:
                jieba.load_userdict("extra/myDict.dict")
    ```
 
