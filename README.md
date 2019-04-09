@@ -136,4 +136,4 @@
 1. 语料库中语句过少，自定义IDF文件效果不明显；
 2. 目前answerMap中每个section只有一个question语句，不甚合理；
 3. 可考虑采用监督学习训练优化一下语料库；
-4. myWordLib.txt文档内容在myIDF.dict文档中事实上已存在，存在冗余存储问题。
+4. myWordLib.txt文档内容在myIDF.txt文档中事实上已存在，存在冗余存储问题。
