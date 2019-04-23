@@ -169,11 +169,12 @@ class Vec:
         if t =='none':
             if result < threshold:
                 return False
-            elif result <0.6:
+            elif result <0.4:
                 self.cfg.set_threshold(result + 0.001)
                 return True
             else:
-                return False
+                self.tuning(q, t)
+                return True
         elif section == t and result >= threshold:
             return False
         elif section == t and result < threshold:
@@ -192,13 +193,25 @@ class Vec:
         with open(self.cfg.answermap_path, 'w+') as fw:
             self.cfgParser.write(fw)
         '''
-
-        v1 = json.loads(self.cfgParser[t]['vector'])
-        v2 = self.make_vec(q)
-        a1 = numpy.array(v1)
-        a2 = numpy.array(v2)
-        a1 = (a1 * 0.9) + (a2 * 0.1)
-        v1 = a1.tolist()
-        self.cfgParser[t]['vector'] = str(v1)
-        with open(self.cfg.answermap_path, 'w+') as fw:
-            self.cfgParser.write(fw)
+        if t != 'none':
+            v1 = json.loads(self.cfgParser[t]['vector'])
+            v2 = self.make_vec(q)
+            a1 = numpy.array(v1)
+            a2 = numpy.array(v2)
+            a1 = (a1 * 0.9) + (a2 * 0.1)
+            v1 = a1.tolist()
+            self.cfgParser[t]['vector'] = str(v1)
+            with open(self.cfg.answermap_path, 'w+') as fw:
+                self.cfgParser.write(fw)
+        else:
+            actual = self.simi_answermap_vec(q)
+            section = actual[1]
+            v1 = json.loads(self.cfgParser[section]['vector'])
+            v2 = self.make_vec(q)
+            a1 = numpy.array(v1)
+            a2 = numpy.array(v2)
+            a1 = (a1 * 1.2) - (a2 * 0.2)
+            v1 = a1.tolist()
+            self.cfgParser[section]['vector'] = str(v1)
+            with open(self.cfg.answermap_path, 'w+') as fw:
+                self.cfgParser.write(fw)

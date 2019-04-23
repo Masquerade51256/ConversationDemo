@@ -1,5 +1,128 @@
 # 语句在语料库中进行tf-idf特征匹配
 
+## 2014.04.23
+
+## 更新内容
+
+1. 添加了训练函数
+
+   ```python
+       def train(self):
+           '''
+           1.读文本中的训练样本
+           2.划词
+           3.添加wordlist
+           4.重写vec词典
+           '''
+           fp = open('extra/trainSample.txt', 'r')
+           re = fp.readline()
+           while re :
+               train_sample = re.split(' ')
+               q = train_sample[0]
+               t = train_sample[1]
+               t = t.replace('\n', '')
+               self.add_words(q)
+               while self.varification(q, t):
+                   i = 0
+               re = fp.readline()
+           fp.close()
+           # self.make_vec_file()
+           print('训练结束')
+       def add_words(self, q):
+           words = Ut.file2List("extra/myWordsLib.txt")
+           fw = open('extra/myWordsLib.txt', 'r+')
+           fw.read()
+   
+           seg_list = jieba.cut(q)
+           write_flag = True
+           for s in seg_list:
+               for w in words:
+                   if s == w:
+                       write_flag = False
+                       break
+               if write_flag:
+                   print(s)
+                   for i in self.index:
+                       a = str(self.cfgParser[i]['vector'])
+                       a = a.replace(']', ', ')
+                       a = a + '0.0]'
+                       self.cfgParser[i]['vector'] = a
+                   with open(self.cfg.answermap_path, 'w+') as f:
+                       self.cfgParser.write(f)
+                   fw.write(s +'\n')
+               write_flag = True
+           fw.close()
+   
+   
+       def varification(self, q, t):
+           print(q)
+           threshold = self.cfg.threshold
+           actual = self.simi_answermap_vec(q)
+           result = float(actual[0])
+           section = actual[1]
+           if t =='none':
+               if result < threshold:
+                   return False
+               elif result <0.4:
+                   self.cfg.set_threshold(result + 0.001)
+                   return True
+               else:
+                   self.tuning(q, t)
+                   return True
+           elif section == t and result >= threshold:
+               return False
+           elif section == t and result < threshold:
+               if threshold - result <0.01:
+                   self.cfg.set_threshold(result - 0.001)
+               else:
+                   self.tuning(q, t)
+               return True
+           else:
+               self.tuning(q, t)
+               return True
+   
+       def tuning(self, q, t):
+           '''
+           self.cfgParser[t]['question'] = self.cfgParser[t]['question'] + q
+           with open(self.cfg.answermap_path, 'w+') as fw:
+               self.cfgParser.write(fw)
+           '''
+           if t != 'none':
+               v1 = json.loads(self.cfgParser[t]['vector'])
+               v2 = self.make_vec(q)
+               a1 = numpy.array(v1)
+               a2 = numpy.array(v2)
+               a1 = (a1 * 0.9) + (a2 * 0.1)
+               v1 = a1.tolist()
+               self.cfgParser[t]['vector'] = str(v1)
+               with open(self.cfg.answermap_path, 'w+') as fw:
+                   self.cfgParser.write(fw)
+           else:
+               actual = self.simi_answermap_vec(q)
+               section = actual[1]
+               v1 = json.loads(self.cfgParser[section]['vector'])
+               v2 = self.make_vec(q)
+               a1 = numpy.array(v1)
+               a2 = numpy.array(v2)
+               a1 = (a1 * 1.2) - (a2 * 0.2)
+               # 此处参数可调
+               v1 = a1.tolist()
+               self.cfgParser[section]['vector'] = str(v1)
+               with open(self.cfg.answermap_path, 'w+') as fw:
+                   self.cfgParser.write(fw)
+   ```
+
+2. [**trainSample.txt**](Jieba_demo/extra/trainSample.txt)
+
+3. **[tfConfig.py](Jieba_demo/tfConfig.py)**
+
+4. 现存问题
+
+   1. 模型训练不稳定，根据训练样本顺序不同导致训练结果差异较大；
+   2. 代码结构较乱。
+
+## 2019.04.09
+
 ## 项目内容与自测结果
 
 1. 建立了自己的词库、停止词库、IDF词典、tf-idf向量词典以及回答词典；
@@ -27,7 +150,7 @@
 
 ## 文件说明
 
-1. ##### `answerMap.cfg`
+1. ##### [answerMap.ini](Jieba_demo/extra/answerMap.ini)
 
    以每个回答类型为section，section名为1至34的编号，包含回答的内容（answer）、用户可能的问题（question）和用户问题对应的tf-idf特征向量（vector），示例如下：
 
@@ -38,11 +161,11 @@
    vector = [0.23299000143333332, 0.27623067748888885, 0, 0.14243956831111113, 0, ...]
    ```
 
-2. ##### `myDict.txt`
+2. ##### [myDict.dict](Jieba_demo/extra/myDict.dict)
 
    添加语句库中一些专有词，使jieba能够有效分词。
 
-3. ##### `myIDF.dict`
+3. ##### [myIDF.txt](Jieba_demo/extra/myIDF.txt)
 
    自定义IDF词库，储存分词结果及对应IDF值，用于替换默认IDF词库，提高匹配精度，可在`Vec`对象初始化时选择是否使用`myIDF`。
 
@@ -60,15 +183,15 @@
                jieba.load_userdict("extra/myDict.dict")
    ```
 
-4. ##### `myStop.txt`
+4. ##### [myStop.txt](Jieba_demo/extra/myStop.txt)
 
    自定义停止词，目前仅收录语气词及标点符号。
 
-5. ##### `myWordsLib.txt`
+5. ##### [myWordsLib.txt](Jieba_demo/extra/myWordsLib.txt)
 
    自定义词库，储存语料库所有语句的分词结果，用于生成tf-idf向量，体现tf-idf向量维度。
 
-6. ##### `main.py`
+6. ##### [main.py](Jieba_demo/main.py)
 
    项目入口，输入一行字符串，打印出匹配结果，内容如下：
 
@@ -89,15 +212,15 @@
        s = input()
    ```
 
-7. ##### `makeIDF.py`
+7. ##### [makeIDF.py](Jieba_demo/makeIDF.py)
 
    IDF类，主要用于生成`myIDF.dict`
 
-8. ##### `makeVec.py`
+8. ##### [makeVec.py](Jieba_demo/makeVec.py)
 
    Vec类，完成字符串转换为tf-idf向量及余弦相似度匹配功能
 
-9. ##### `utility.py`
+9. ##### [utility.py](Jieba_demo/utility.py)
 
    工具类，提供一些转换工具函数
 
