@@ -5,12 +5,12 @@ from utility import Utility as Ut
 from configparser import ConfigParser
 
 class IDF:
-    def __init__(self, file_name: str = "extra/answerMap.cfg"):
+    def __init__(self, file_name: str = "extra/answerMap.ini"):
         jieba.load_userdict("extra/myDict.dict")
         self.cfgParser = ConfigParser()
         self.cfgParser.read(file_name, encoding="UTF8")
         self.index = ['1', '2', '3', '4', '5', '6',
-                      '7', '8', '9', '10', '11', '3',
+                      '7', '8', '9', '10', '11', '12',
                       '13', '14', '15', '16', '17', '18',
                       '19', '20', '21', '22', '23', '24',
                       '25', '26', '27', '28', '29', '30',
@@ -24,6 +24,7 @@ class IDF:
             cut_line = jieba.cut(self.cfgParser[i]['question'])
             stopwords = Ut.file2List("extra/myStop.txt")
             outstr = []
+
             for word in cut_line:
                 if word not in stopwords:
                     if word != '\t' and word != '\n':
