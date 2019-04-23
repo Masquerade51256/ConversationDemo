@@ -121,7 +121,7 @@
 
 5. ##### `simi_answermap_vec(self, s1)`
 
-   `Vec`类方法，调用`simi_strs`方法，将传入的字符串调用`make_vec`方法转化为tf-idf向量，再与`answerMap`中所有`section`的`vector`进行余弦相似度匹配，返回一个向量，包括最高的余弦相似度、最相似的`section`标号和对应回答的内容。
+   `Vec`类方法，调用`simi_strs`方法，将传入的字符串调用`make_vec`方法转化为tf-idf向量，再与`answerMap`中所有`section`的`vector`进行余弦相似度匹配，返回一个向量，包括最高的余弦相似度、最相似的`section`标号和对应回答的内容，是主要的对外接口。
 
 6. ##### `make_vec_file(self, file_name="extra/answerMap.cfg")`
 
