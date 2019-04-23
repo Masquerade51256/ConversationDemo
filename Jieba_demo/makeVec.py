@@ -94,7 +94,8 @@ class Vec:
         for i in self.index:
             v2 = json.loads(self.cfgParser[i]['vector'])
             result = self.simi_vecs(v1, v2)
-            if result > threshold and result > best_value:
+            # if result > threshold and result > best_value:
+            if result > best_value:
                 best_value = result
                 answer = self.cfgParser[i]['answer']
                 target = i
@@ -174,8 +175,6 @@ class Vec:
             else:
                 return False
         elif section == t and result >= threshold:
-            if result - threshold < 0.01:
-                self.cfg.set_threshold(result - 0.001)
             return False
         elif section == t and result < threshold:
             if threshold - result <0.01:
@@ -198,7 +197,7 @@ class Vec:
         v2 = self.make_vec(q)
         a1 = numpy.array(v1)
         a2 = numpy.array(v2)
-        a1 = (a1 * 0.7) + (a2 * 0.3)
+        a1 = (a1 * 0.9) + (a2 * 0.1)
         v1 = a1.tolist()
         self.cfgParser[t]['vector'] = str(v1)
         with open(self.cfg.answermap_path, 'w+') as fw:

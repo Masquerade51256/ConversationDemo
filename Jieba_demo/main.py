@@ -7,7 +7,7 @@ d = IDF()
 
 m = Vec()
 # m.make_vec_file() # 补充answerMap文件
-c = cfg
+c = cfg()
 c.set_threshold(0.1)
 m.train()
 s = input()
